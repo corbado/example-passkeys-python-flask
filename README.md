@@ -24,54 +24,27 @@ This project implements a web application with a login system using the Corbado 
 Clone this repository to your local machine by running:
 
 ```sh
-git clone https://github.com/chigozz/flask-corbado
+git clone https://github.com/corbado/example-passkeys-python-flask
 
 ```
 
-### Step 2: Update .env File
+### Step 2: Create .env File
 
-To configure the credentials, you will need to update the .env file with your API key, project ID, and JWKS URI from Corbado:
+To configure the credentials, you will need to create a .env file with your API key and project ID from Corbado:
 
 * To get your API key and project ID, visit your [Corbado developer panel](https://app.corbado.com/).
-
-* For the JWKS URI, refer to the [Protecting Routes documentation](https://docs.corbado.com/sessions/protecting-routes/protecting-routes-without-sdk-support) which explains how to find the JSON Web Key Set URL.
-* 
-The JWKS URI provides the public keys needed to verify JSON web tokens. Configuring these credentials in the `.env` file will allow the application to authenticate users and validate access tokens issued by Corbado.
 
 Please refer to the [Corbado docs](https://docs.corbado.com/overview/welcome) for more details on obtaining the necessary credentials and integrating Corbado authentication in your application.
 
 ```sh
-ISSUER=enter_issuer_url 
-JWKS_URI=enter_jwks_uri
 API_KEY=enter_api_key  
 PROJECT_ID=enter_project_id
 ```
-### Step 3: Install Project Packages
 
-Run the following command to install the project packages specified in the requirements.txt file:
-
-```sh
-pip install -r requirements.txt
-```
-
-### Step 4: Run the Project
+### Step 3: Run the Project
 
 Use the following command to run the project:
 
 ```sh
-python corbado-auth.py
-```
-
-### Test with Docker
-
-Run the following command to build the Docker image:
-
-```sh
-docker build -t corbado-auth .
-```
-
-Run the following command to run the project:
-
-```sh
-docker run -p 5000:5000 corbado-auth
+docker compose up
 ```
