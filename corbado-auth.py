@@ -10,14 +10,13 @@ load_dotenv()
 
 app = Flask(__name__)
 
+PROJECT_ID = os.environ.get("PROJECT_ID")
+API_SECRET = os.environ.get("API_SECRET")
+
 # Session config
 short_session_cookie_name = "cbo_short_session"
-issuer = "https://" + str(os.environ.get("PROJECT_ID")) + ".frontendapi.corbado.io"
-jwks_uri = (
-    "https://"
-    + str(os.environ.get("PROJECT_ID"))
-    + ".frontendapi.corbado.io/.well-known/jwks"
-)
+issuer = f"https://{PROJECT_ID}.frontendapi.corbado.io"
+jwks_uri = f"https://{PROJECT_ID}.frontendapi.corbado.io/.well-known/jwks"
 
 
 class User:
@@ -49,7 +48,7 @@ class Session:
                 token,
                 key=public_key,
                 algorithms=["RS256"],
-                audience=self.app.config.get("API_KEY"),
+                audience=self.app.config.get("API_SECRET"),
                 issuer=self.issuer,
             )
 
@@ -65,8 +64,8 @@ class Session:
             return User(False)
 
 
-# Use the API_KEY from the environment variables
-app.config["API_KEY"] = os.environ.get("API_KEY")
+# Use the API_SECRET from the environment variables
+app.config["API_SECRET"] = os.environ.get("API_SECRET")
 
 # Pass PROJECT_ID as a context variable to templates
 app.config["PROJECT_ID"] = os.environ.get("PROJECT_ID")
@@ -93,4 +92,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)

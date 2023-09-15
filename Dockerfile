@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Install dependencies
 RUN pip install -r requirements.txt
 
-# Copy project code
+# Copy .env file (including credentials) and project code
 COPY . .
 
 # Expose port
