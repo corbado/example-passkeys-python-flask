@@ -7,6 +7,8 @@ integrated with a Flask backend. The application consists of two main pages: a l
 log in successfully via the Corbado service on the login page, they are redirected to the home page where they can log
 out and view protected content.
 
+Please see the [full blog post](https://www.corbado.com/blog/passkeys-python-flask) to understand the detailed steps needed to integrate passkeys into Flask apps.
+
 ## Tools and Technologies Used
 
 - **Flask**: A lightweight WSGI web application framework in Python, used to build the backend of the application.
