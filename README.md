@@ -1,4 +1,4 @@
-# Passkey-First Authentication with Flask and Corbado
+# Flask Passkey Example App
 
 ## Project Overview
 
