@@ -12,7 +12,7 @@ Please see the [full blog post](https://www.corbado.com/blog/passkeys-python-fla
 ## Tools and Technologies Used
 
 - **Flask**: A lightweight WSGI web application framework in Python, used to build the backend of the application.
-- **Corbado Python SDK**: An python SDK for corbado services.
+- **Corbado Python SDK**: A comprehensive Python SDK for interacting with Corbado services.
 - **Python-dotenv**: A Python package to read key-value pairs from a `.env` file and set them as environment variables.
 - **HTML & CSS**: Used to structure and style the frontend of the application.
 
