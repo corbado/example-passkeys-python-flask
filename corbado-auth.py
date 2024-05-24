@@ -46,10 +46,10 @@ def login() -> str:
 def home() -> str:
     # Acquire cookies with your preferred method
     token: str = request.cookies.get(config.short_session_cookie_name) or ""
-    user2: UserEntity = sessions.get_current_user(short_session=token)
+    user: UserEntity = sessions.get_current_user(short_session=token)
 
-    if user2.authenticated:
-        user_data = {"id": user2.user_id, "name": user2.name, "email": user2.email}
+    if user.authenticated:
+        user_data = {"id": user.user_id, "name": user.name, "email": user.email}
         return render_template(
             template_name_or_list="home.html",
             user_data=user_data,
