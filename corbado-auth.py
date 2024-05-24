@@ -12,11 +12,7 @@ app = Flask(__name__)
 
 PROJECT_ID: str = os.environ.get("PROJECT_ID") or ""
 API_SECRET: str = os.environ.get("API_SECRET") or ""
-BACKEND_API: str = os.environ.get("BACKEND_API") or ""
 
-# Session config
-issuer: str = f"https://{PROJECT_ID}.frontendapi.corbado.io"
-jwks_uri: str = f"https://{PROJECT_ID}.frontendapi.corbado.io/.well-known/jwks"
 
 # Config has a default values for 'short_session_cookie_name' and 'BACKEND_API'
 config: Config = Config(
