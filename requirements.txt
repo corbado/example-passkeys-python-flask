@@ -1,4 +1,4 @@
 Flask
 python-dotenv
 Werkzeug
-passkeys
+passkeys>=1.0.0

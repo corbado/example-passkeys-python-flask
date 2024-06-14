@@ -11,9 +11,9 @@
       
       <!-- Define passkey-list div and logout button -->
     <h2>:/protected 🔒</h2>
-    <p>User ID: {{USER_ID}}</p>
-    <p>Name: {{USER_NAME}}</p>
-    <p>Email: {{USER_EMAIL}}</p>
+    <p>User ID: {{ user_data.id }}</p>
+    <p>Name: {{ user_data.name }}</p>
+    <p>Email: {{ user_data.email }}</p>
     <div id="passkey-list"></div>
     <button id="logoutButton">Logout</button>
 

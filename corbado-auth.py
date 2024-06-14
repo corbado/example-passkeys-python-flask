@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request
-from werkzeug.exceptions import Unauthorized
+from flask import Flask, render_template, request, Response
 from dotenv import load_dotenv
 import os
 from corbado_python_sdk import Config, CorbadoSDK, UserEntity, SessionInterface
@@ -52,7 +51,7 @@ def home() -> str:
             PROJECT_ID=app.config["PROJECT_ID"],
         )
     else:
-        raise Unauthorized()
+        return Response("You are not authenticated or have not yet confirmed your email.", status=401)
 
 
 if __name__ == "__main__":
