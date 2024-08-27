@@ -1,5 +1,4 @@
 from typing import List
-from venv import logger
 from corbado_python_sdk.entities.session_validation_result import (
     SessionValidationResult,
 )
