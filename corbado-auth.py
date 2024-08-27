@@ -48,7 +48,6 @@ app.config["PROJECT_ID"] = PROJECT_ID
 
 @app.route("/")
 def login() -> str:
-    print("here2")
     return render_template(
         template_name_or_list="login.html", PROJECT_ID=app.config["PROJECT_ID"]
     )
@@ -56,7 +55,6 @@ def login() -> str:
 
 @app.route("/home")
 def home() -> str:
-    print("here")
     # Acquire cookies with your preferred method
     token: str = request.cookies.get(config.short_session_cookie_name) or ""
     validation_result: SessionValidationResult = sessions.get_current_user(
@@ -84,4 +82,4 @@ def home() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
