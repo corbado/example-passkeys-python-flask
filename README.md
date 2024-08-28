@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements a web application with a login system using Corbado' passkey-first authentication service
+This project implements a web application with a login system using Corbado's passkey-first authentication service
 integrated with a Flask backend. The application consists of two main pages: a login page and a home page. Once users
 log in successfully via the Corbado service on the login page, they are redirected to the home page where they can log
 out and view protected content.
@@ -34,8 +34,8 @@ git clone https://github.com/corbado/example-passkeys-python-flask
 
 ### Step 2: Create .env File
 
-To configure the credentials, you will need to create a .env file with your project ID and API secret from Corbado:
-To get your project ID and API secret visit your [Corbado developer panel](https://app.corbado.com/).
+To configure the credentials, you will need to create a `.env` file with your `Project ID` and `API secret` from Corbado:
+To get your `Project ID` and `API secret` visit your [Corbado developer panel](https://app.corbado.com/?technology=passkeys&framework=Flask#signup-init).
 
 Please refer to the [Corbado docs](https://docs.corbado.com/overview/welcome) for more details on obtaining the
 necessary credentials and integrating Corbado authentication in your application.
@@ -43,7 +43,6 @@ necessary credentials and integrating Corbado authentication in your application
 ```sh
 PROJECT_ID=<your-project-id>
 API_SECRET=<your-api-secret>
-
 ```
 
 ### Step 3: Run the Project
