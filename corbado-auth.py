@@ -10,10 +10,10 @@ import os
 from corbado_python_sdk import (
     Config,
     CorbadoSDK,
-    IdentifierInterface,
+    IdentifierService,
     UserEntity,
-    SessionInterface,
-    UserInterface,
+    SessionService,
+    UserService,
 )
 
 
@@ -34,9 +34,9 @@ config: Config = Config(
 
 # Initialize SDK
 sdk: CorbadoSDK = CorbadoSDK(config=config)
-sessions: SessionInterface = sdk.sessions
-identifiers: IdentifierInterface = sdk.identifiers
-users: UserInterface = sdk.users
+sessions: SessionService = sdk.sessions
+identifiers: IdentifierService = sdk.identifiers
+users: UserService = sdk.users
 
 # Use the API_SECRET from the environment variables
 app.config["API_SECRET"] = API_SECRET
@@ -61,9 +61,10 @@ def home() -> str:
     )
 
     if validation_result.authenticated:
-        user: UserEntity = users.get(user_id=validation_result.user_id)
+        user_id: str = validation_result.user_id or ""
+        user: UserEntity = users.get(user_id=user_id)
         email_identifiers: List[Identifier] = identifiers.list_all_emails_by_user_id(
-            user_id=validation_result.user_id
+            user_id=user_id
         )
 
         user_data = {
