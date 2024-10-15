@@ -52,3 +52,7 @@ Use the following command to run the project in a docker container:
 ```sh
 docker compose up
 ```
+
+Open your browser and navigate to `http://localhost:3000` to view the application.
+
+Caution: On `http://127.0.0.1:3000` passkeys will not work!
