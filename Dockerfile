@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expose port
-EXPOSE 5000
+EXPOSE 3000
 
 # Run app
 CMD ["python", "corbado-auth.py"]
