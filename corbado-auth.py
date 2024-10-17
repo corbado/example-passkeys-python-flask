@@ -16,15 +16,11 @@ from corbado_python_sdk import (
     UserService,
 )
 
-
-# Load environment variables from .env file
 load_dotenv()
-
 app = Flask(__name__)
 
 PROJECT_ID: str = os.environ.get("PROJECT_ID") or ""
 API_SECRET: str = os.environ.get("API_SECRET") or ""
-
 
 # Config has a default values for 'short_session_cookie_name' and 'BACKEND_API'
 config: Config = Config(
@@ -38,12 +34,8 @@ sessions: SessionService = sdk.sessions
 identifiers: IdentifierService = sdk.identifiers
 users: UserService = sdk.users
 
-# Use the API_SECRET from the environment variables
 app.config["API_SECRET"] = API_SECRET
-
-# Pass PROJECT_ID as a context variable to templates
 app.config["PROJECT_ID"] = PROJECT_ID
-
 
 @app.route("/")
 def login() -> str:
@@ -51,13 +43,12 @@ def login() -> str:
         template_name_or_list="login.html", PROJECT_ID=app.config["PROJECT_ID"]
     )
 
-
 @app.route("/home")
 def home() -> str:
     # Acquire cookies with your preferred method
-    token: str = request.cookies.get(config.short_session_cookie_name) or ""
+    sessionToken: str = request.cookies.get("cbo_session_token") or ""
     validation_result: SessionValidationResult = sessions.get_current_user(
-        short_session=token
+        short_session=sessionToken
     )
 
     if validation_result.authenticated:
